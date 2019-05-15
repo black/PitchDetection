@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    tools:context=".MainActivity">
 
-    <RelativeLayout
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:titleTextColor="@color/colorPrimaryDark"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="128dp">
+
+        <RelativeLayout
         android:id="@+id/container"
         android:layout_gravity="center"
         android:layout_width="400dp"
         android:layout_height="400dp">
-    </RelativeLayout>
-    <TextView
+        </RelativeLayout>
+        <TextView
         android:id="@+id/notes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,26 +43,65 @@
         android:gravity="center"
         />
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:gravity="center"-->
-        <!--android:padding="16dp"-->
-        <!--android:orientation="horizontal">-->
-        <!--<Button-->
-            <!--android:id="@+id/reset"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="RESET" />-->
-        <!--<Button-->
-            <!--android:id="@+id/stop"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="STOP" />-->
-        <!--<Button-->
-            <!--android:id="@+id/start"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="START" />-->
-    <!--</LinearLayout>-->
-</LinearLayout>
+    </LinearLayout>
+    <RadioGroup
+        android:layout_gravity="end"
+        android:id="@+id/musicselector"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:background="#ccc"
+        android:padding="16dp">
+
+        <RadioButton
+            android:layout_marginTop="64dp"
+            android:id="@+id/radioButtonA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:text="A" />
+        <RadioButton
+            android:id="@+id/radioButtonB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:text="B" />
+        <RadioButton
+            android:id="@+id/radioButtonC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:text="C" />
+        <RadioButton
+            android:id="@+id/radioButtonD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:text="D" />
+        <RadioButton
+            android:id="@+id/radioButtonE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:text="E" />
+        <RadioButton
+            android:id="@+id/radioButtonF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:text="F" />
+        <RadioButton
+            android:id="@+id/radioButtonG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:text="G" />
+    </RadioGroup>
+
+</android.support.design.widget.CoordinatorLayout>
