@@ -3,11 +3,16 @@ package com.nuro.pitchdetection;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import be.tarsos.dsp.AudioDispatcher;
 import be.tarsos.dsp.AudioEvent;
@@ -18,6 +23,8 @@ import be.tarsos.dsp.pitch.PitchDetectionResult;
 import be.tarsos.dsp.pitch.PitchProcessor;
 
 public class MainActivity extends AppCompatActivity {
+    private RelativeLayout relativeLayout;
+    private TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         if (!hasPermissions(this, permissions)) {
             ActivityCompat.requestPermissions(this,permissions, PERMISSIONS_ALL);
         }
+        relativeLayout = findViewById(R.id.container);
+        textView = findViewById(R.id.notes);
         mic();
     }
 
@@ -57,41 +66,40 @@ public class MainActivity extends AppCompatActivity {
         dispatcher.addAudioProcessor(pitchProcessor);
         Thread audioThread = new Thread(dispatcher, "Audio Thread");
         audioThread.start();
-
     }
 
     public void processPitch(float pitchInHz) {
-
-        //pitchText.setText("" + pitchInHz);
-        Log.d("tone",pitchInHz+"");
         if (pitchInHz >= 110 && pitchInHz < 123.47) {
-            //A
-           // noteText.setText("A");
             Log.d("tone","A");
+            relativeLayout.setBackgroundColor(Color.parseColor("#27ae60"));
+            textView.setText("A");
         } else if (pitchInHz >= 123.47 && pitchInHz < 130.81) {
-            //B
-           // noteText.setText("B");
             Log.d("tone","B");
+            textView.setText("B");
+            relativeLayout.setBackgroundColor(Color.parseColor("#16a085"));
         } else if (pitchInHz >= 130.81 && pitchInHz < 146.83) {
-            //C
-           // noteText.setText("C");
             Log.d("tone","C");
+            textView.setText("C");
+            relativeLayout.setBackgroundColor(Color.parseColor("#f1c40f"));
         } else if (pitchInHz >= 146.83 && pitchInHz < 164.81) {
-            //D
-           // noteText.setText("D");
             Log.d("tone","D");
+            textView.setText("D");
+            relativeLayout.setBackgroundColor(Color.parseColor("#f39c12"));
         } else if (pitchInHz >= 164.81 && pitchInHz <= 174.61) {
-            //E
-           // noteText.setText("E");
             Log.d("tone","E");
+            textView.setText("E");
+            relativeLayout.setBackgroundColor(Color.parseColor("#d35400"));
         } else if (pitchInHz >= 174.61 && pitchInHz < 185) {
-            //F
-           // noteText.setText("F");
             Log.d("tone","F");
+            textView.setText("F");
+            relativeLayout.setBackgroundColor(Color.parseColor("#c0392b"));
         } else if (pitchInHz >= 185 && pitchInHz < 196) {
-            //G
-           // noteText.setText("G");
             Log.d("tone","G");
+            textView.setText("G");
+            relativeLayout.setBackgroundColor(Color.parseColor("#8e44ad"));
+        }else{
+            textView.setText(" ");
+            relativeLayout.setBackgroundColor(Color.parseColor("#ecf0f1"));
         }
     }
 
