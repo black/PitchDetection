@@ -3,7 +3,6 @@ package com.nuro.pitchdetection;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -18,9 +17,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import be.tarsos.dsp.AudioDispatcher;
 import be.tarsos.dsp.AudioEvent;
@@ -42,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(mainView);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("MusicFun");
+        toolbar.setTitle("Sound Bulb");
         setSupportActionBar(toolbar);
         //Permission Check
         int PERMISSIONS_ALL = 1;
